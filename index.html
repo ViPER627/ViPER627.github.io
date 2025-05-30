@@ -28,12 +28,15 @@
        作品集
       </a>
      </li>
-     <li>
-      <a href="mailto:viper_72527@yahoo.com.tw?subject=聯絡ViPER&body=您好，我想了解更多合作細節。">
-       <img alt="" src="assets/images/icon-contact.png"/>
-       聯絡我
-      </a>
-     </li>
+<li style="position: relative;">
+  <a id="contact-link"
+     href="mailto:viper_72527@yahoo.com.tw?subject=聯絡ViPER&body=您好，我想了解更多合作細節。"
+     onclick="copyEmail();">
+    <img src="assets/images/icon-contact.png" alt="email" />
+    聯絡我
+  </a>
+  <span id="copy-status">✔ 已複製信箱</span>
+</li>
     </ul>
    </nav>
   </header>
@@ -628,6 +631,18 @@
     });
   });
   </script>
+<script>
+  function copyEmail() {
+    const email = "viper_72527@yahoo.com.tw";
+    navigator.clipboard.writeText(email).then(() => {
+      const status = document.getElementById("copy-status");
+      status.style.display = "inline";
+      setTimeout(() => {
+        status.style.display = "none";
+      }, 2000); // 2秒後隱藏
+    });
+  }
+</script>
   <div class="mobile-nav">
    <a href="#about">
     <img alt="關於我" src="assets/images/icon-about.png"/>
