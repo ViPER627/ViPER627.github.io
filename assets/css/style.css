@@ -1,9 +1,0 @@
-
-body { font-family: sans-serif; margin: 0; padding: 0; }
-.container { padding: 20px; }
-.portfolio-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-.portfolio-grid a { width: calc(33.333% - 1rem); display: block; }
-.portfolio-grid img { width: 100%; height: auto; }
-.tab-button { margin: 0.5rem; padding: 0.5rem 1rem; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
