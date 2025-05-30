@@ -35,7 +35,9 @@
     <img src="assets/images/icon-contact.png" alt="email" />
     聯絡我
   </a>
-  <span id="copy-status">✔ 已複製信箱</span>
+  <div id="copy-tooltip" class="tooltip">✔ 已複製信箱
+    <div class="tooltip-arrow"></div>
+  </div>
 </li>
     </ul>
    </nav>
@@ -632,16 +634,17 @@
   });
   </script>
 <script>
-  function copyEmail() {
-    const email = "viper_72527@yahoo.com.tw";
-    navigator.clipboard.writeText(email).then(() => {
-      const status = document.getElementById("copy-status");
-      status.style.display = "inline";
+function copyEmail() {
+  const email = "viper_72527@yahoo.com.tw";
+  navigator.clipboard.writeText(email).then(() => {
+    document.querySelectorAll("#copy-tooltip").forEach(el => {
+      el.style.opacity = "1";
       setTimeout(() => {
-        status.style.display = "none";
-      }, 2000); // 2秒後隱藏
+        el.style.opacity = "0";
+      }, 2000);
     });
-  }
+  });
+}
 </script>
   <div class="mobile-nav">
    <a href="#about">
@@ -652,10 +655,10 @@
     <img alt="作品集" src="assets/images/icon-portfolio.png"/>
     作品集
    </a>
-   <a href="#contact">
-    <img alt="聯絡我" src="assets/images/icon-contact.png"/>
-    聯絡我
-   </a>
+<a href="mailto:viper_72527@yahoo.com.tw?subject=聯絡ViPER&body=您好，我想了解更多合作細節。"
+   onclick="copyEmail();">
+  <img src="assets/images/icon-contact.png" alt=""> 聯絡我
+</a>
   </div>
  </body>
 </html>
