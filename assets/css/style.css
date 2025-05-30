@@ -526,14 +526,16 @@ color: white;
 }
 #copy-status {
   position: absolute;
-  top: -10px;
-  right: -120px;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
   background: #e0ffe0;
   color: green;
-  padding: 4px 8px;
+  padding: 5px 10px;
   border-radius: 6px;
   font-size: 13px;
   display: none;
+  white-space: nowrap;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 100;
 }
