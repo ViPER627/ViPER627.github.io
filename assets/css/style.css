@@ -261,97 +261,95 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* ===== Portfolio Tabs ===== */
+/* ===== Portfolio ===== */
+#portfolio .container {
+  width: min(94%, 1400px);
+  max-width: 1400px;
+}
+
 .portfolio-tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin: 30px 0 20px;
+  gap: 14px;
+  margin: 28px 0 32px;
   text-align: center;
 }
 
-.tab-button,
 .portfolio-tabs .tab-button {
-  width: 140px;
+  min-width: 140px;
   height: 50px;
-  min-width: 110px;
-  text-align: center;
+  padding: 0 22px;
   border: none;
-  border-radius: 15px;
-  background: #f3f3f3;
+  border-radius: 14px;
+  background: #ececec;
   color: #333;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.tab-button:hover,
 .portfolio-tabs .tab-button:hover {
-  background: #ccc;
   transform: translateY(-1px);
+  background: #e2e2e2;
 }
 
-.tab-button.active,
 .portfolio-tabs .tab-button.active {
   background: #3f86f3;
   color: #fff;
+  box-shadow: 0 8px 20px rgba(63, 134, 243, 0.2);
 }
 
-/* ===== Portfolio Content ===== */
-.portfolio-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* 預設只有 design 顯示，其它由 JS 切換 */
+#portfolio .portfolio-content {
+  display: none;
+}
+
+#portfolio .portfolio-content#design {
+  display: block;
+}
+
+/* 改用 CSS columns */
+#portfolio .portfolio-content.masonry-grid {
+  column-gap: 18px;
   padding-top: 20px;
 }
 
-.portfolio-content a {
+/* 你的 .grid-item 本身就是 a */
+#portfolio .portfolio-content .grid-item {
   display: inline-block;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  width: 100%;
+  margin: 0 0 18px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  text-decoration: none;
+  transition: transform 0.25s ease;
 }
 
-.portfolio-content a:hover {
-  transform: scale(1.05);
+#portfolio .portfolio-content .grid-item:hover {
+  transform: translateY(-2px);
 }
 
-.portfolio-content img {
+#portfolio .portfolio-content .grid-item img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* ===== Masonry / Grid ===== */
-.portfolio-content.masonry-grid,
-.masonry-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.portfolio-content .grid-item,
-.masonry-grid .grid-item {
-  width: 100%;
-  max-width: 360px;
-  margin: 0;
-  display: block;
-}
-
-.portfolio-content .grid-item img,
-.masonry-grid .grid-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+#portfolio .portfolio-content .grid-item:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== Tooltip ===== */
@@ -568,8 +566,6 @@ footer .container {
 }
 
 /* ===== RWD ===== */
-
-/* 手機 */
 @media (max-width: 767px) {
   .hero {
     padding: 40px 20px;
@@ -592,26 +588,25 @@ footer .container {
   }
 
   .portfolio-tabs {
-    flex-direction: row;
-    justify-content: center;
     gap: 10px;
   }
 
   .portfolio-tabs .tab-button {
-    flex: 1 0 auto;
     min-width: 120px;
     font-size: 0.95rem;
   }
 
-  .portfolio-content.masonry-grid,
-  .masonry-grid {
-    gap: 16px;
+  #portfolio .portfolio-content.masonry-grid {
+    column-count: 1;
+    column-gap: 14px;
   }
 
-  .portfolio-content .grid-item,
-  .masonry-grid .grid-item {
-    width: 100%;
-    max-width: 90vw;
+  #portfolio .portfolio-content .grid-item {
+    margin-bottom: 14px;
+  }
+
+  #portfolio .portfolio-content .grid-item img {
+    border-radius: 10px;
   }
 
   .mobile-nav {
@@ -667,220 +662,20 @@ footer .container {
   }
 }
 
-/* iPad：3欄 */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .portfolio-content.masonry-grid,
-  .masonry-grid {
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-  }
-
-  .portfolio-content .grid-item,
-  .masonry-grid .grid-item {
-    width: calc((100% - 40px) / 3);
-    max-width: none;
-  }
-
-  .portfolio-content .grid-item img,
-  .masonry-grid .grid-item img {
-    width: 100%;
-    max-width: 100%;
+  #portfolio .portfolio-content.masonry-grid {
+    column-count: 3;
+    column-gap: 16px;
   }
 }
 
-/* 桌機 */
 @media (min-width: 1025px) {
   .mobile-nav {
     display: none !important;
   }
 
-  .portfolio-content.masonry-grid,
-  .masonry-grid {
-    gap: 24px;
-    max-width: 1280px;
-  }
-
-  .portfolio-content .grid-item,
-  .masonry-grid .grid-item {
-    width: calc((100% - 72px) / 4);
-    max-width: none;
-  }
-}
-/* =========================
-   Portfolio 高級質感版
-   直接貼到 CSS 最底部
-========================= */
-
-/* 整體作品區容器 */
-.portfolio-content.masonry-grid,
-.masonry-grid {
-  margin: 0 auto;
-  padding: 12px;
-  max-width: 1280px;
-  box-sizing: border-box;
-}
-
-/* 單一卡片 */
-.portfolio-content .grid-item,
-.masonry-grid .grid-item {
-  box-sizing: border-box;
-  margin: 5px; /* 作品間距主控 */
-}
-
-/* 作品連結本體 */
-.portfolio-content .grid-item a,
-.masonry-grid .grid-item a {
-  display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.08),
-    0 1px 3px rgba(0, 0, 0, 0.05);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    filter 0.35s ease;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-/* 圖片 */
-.portfolio-content .grid-item img,
-.masonry-grid .grid-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  transition:
-    transform 0.4s ease,
-    filter 0.4s ease;
-}
-
-/* hover 效果 */
-.portfolio-content .grid-item a:hover,
-.masonry-grid .grid-item a:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.14),
-    0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.portfolio-content .grid-item a:hover img,
-.masonry-grid .grid-item a:hover img {
-  transform: scale(1.025);
-  filter: brightness(1.03);
-}
-
-/* 作品區標題和按鈕區更有空氣感 */
-#portfolio .container {
-  max-width: 1320px;
-}
-
-.portfolio-tabs {
-  margin-bottom: 28px;
-}
-
-/* =========================================
-   iPad 強制 3 欄版（直接貼在 CSS 最底）
-========================================= */
-
-/* 作品集容器放寬 */
-#portfolio .container {
-  max-width: 1400px !important;
-  width: 94% !important;
-}
-
-/* 整體 masonry 容器 */
-#portfolio .portfolio-content.masonry-grid,
-#portfolio .masonry-grid {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-  padding: 8px !important;
-  box-sizing: border-box !important;
-}
-
-/* 卡片基本樣式 */
-#portfolio .masonry-grid .grid-item,
-#portfolio .portfolio-content .grid-item {
-  box-sizing: border-box !important;
-  padding: 10px !important;
-}
-
-#portfolio .masonry-grid .grid-item a,
-#portfolio .portfolio-content .grid-item a {
-  display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#portfolio .masonry-grid .grid-item a:hover,
-#portfolio .portfolio-content .grid-item a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
-}
-
-#portfolio .masonry-grid .grid-item img,
-#portfolio .portfolio-content .grid-item img {
-  display: block;
-  width: 100% !important;
-  height: auto !important;
-  border-radius: 16px;
-}
-
-/* 手機 1 欄 */
-@media (max-width: 767px) {
-  #portfolio .masonry-grid .grid-item,
-  #portfolio .portfolio-content .grid-item {
-    width: 100% !important;
-    max-width: 92vw !important;
-    padding: 8px !important;
-  }
-}
-
-/* iPad 強制 3 欄 */
-@media (min-width: 768px) and (max-width: 1024px) {
-  #portfolio .container {
-    max-width: 100% !important;
-    width: 96% !important;
-  }
-
-  #portfolio .portfolio-content.masonry-grid,
-  #portfolio .masonry-grid {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 6px !important;
-  }
-
-  #portfolio .masonry-grid .grid-item,
-  #portfolio .portfolio-content .grid-item {
-    width: 33.3333% !important;
-    max-width: 33.3333% !important;
-    padding: 8px !important;
-  }
-
-  #portfolio .masonry-grid .grid-item img,
-  #portfolio .portfolio-content .grid-item img {
-    border-radius: 14px !important;
-  }
-}
-
-/* 桌機 4 欄 */
-@media (min-width: 1025px) {
-  #portfolio .masonry-grid .grid-item,
-  #portfolio .portfolio-content .grid-item {
-    width: 25% !important;
-    max-width: 25% !important;
-    padding: 10px !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .masonry-grid .grid-item {
-    width: 33.3333% !important;
+  #portfolio .portfolio-content.masonry-grid {
+    column-count: 4;
+    column-gap: 18px;
   }
 }
