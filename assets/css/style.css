@@ -725,7 +725,7 @@ footer .container {
 .portfolio-content .grid-item,
 .masonry-grid .grid-item {
   box-sizing: border-box;
-  padding: 10px; /* 作品間距主控 */
+  margin: 5px; /* 作品間距主控 */
 }
 
 /* 作品連結本體 */
