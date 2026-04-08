@@ -12,7 +12,7 @@ html {
 
 .container {
   width: 90%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -24,8 +24,8 @@ header,
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   background-color: #fffcfc;
   background-image: url("../images/debut-light.png");
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,20 +34,12 @@ header,
   z-index: 1000;
 }
 
-.logo,
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.logo-img,
-.logo-area img {
+.logo-img {
   height: 35px;
   width: auto;
 }
@@ -55,7 +47,6 @@ header,
 /* ===== Nav ===== */
 nav {
   display: block;
-  unicode-bidi: isolate;
 }
 
 .main-nav ul {
@@ -64,8 +55,8 @@ nav {
   gap: 2rem;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 2rem;
   margin: 0;
+  padding: 0;
 }
 
 .main-nav li {
@@ -74,8 +65,7 @@ nav {
 }
 
 .main-nav a,
-nav a,
-.main-nav ul li a {
+nav a {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -110,7 +100,7 @@ nav a:hover::after {
 .main-nav img {
   width: auto;
   height: 1em;
-  margin-right: 8px;
+  margin-right: 4px;
   filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
@@ -131,26 +121,13 @@ nav a:hover::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 60px 30px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
-.hero-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero .avatar,
 .hero .intro {
   position: relative;
   z-index: 1;
-}
-
-.hero-text {
-  flex: 1;
 }
 
 .hero-text h1,
@@ -179,6 +156,7 @@ nav a:hover::after {
   width: 140px;
   height: 140px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .avatar-glow-ring {
@@ -195,8 +173,7 @@ nav a:hover::after {
   opacity: 0.6;
 }
 
-.avatar,
-.avatar img {
+.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -212,13 +189,13 @@ nav a:hover::after {
 .btn-primary {
   display: inline-block;
   margin-top: 1rem;
-  padding: 10px 20px;
+  padding: 10px 22px;
   background: #4a90e2;
   color: #fff;
   border-radius: 20px;
   text-decoration: none;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -231,34 +208,34 @@ nav a:hover::after {
 
 /* ===== Section ===== */
 .section {
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .about {
   background: url("../images/debut-light.png");
 }
 
+.about h2,
+.portfolio h2 {
+  margin-bottom: 24px;
+}
+
 .about p {
   margin-bottom: 1.2em;
-  line-height: 1.8;
+  line-height: 1.9;
   max-width: 950px;
   text-align: justify;
 }
 
 .about-highlights {
   padding-left: 1.2em;
-  margin-top: 1em;
+  margin-top: 1.2em;
   margin-bottom: 2em;
 }
 
 .about-highlights li {
   margin-bottom: 0.8em;
   line-height: 1.7;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
 /* ===== Portfolio ===== */
@@ -301,7 +278,7 @@ h1 {
   box-shadow: 0 8px 20px rgba(63, 134, 243, 0.2);
 }
 
-/* 預設只有 design 顯示，其它由 JS 切換 */
+/* 預設只顯示第一個 tab */
 #portfolio .portfolio-content {
   display: none;
 }
@@ -310,13 +287,13 @@ h1 {
   display: block;
 }
 
-/* 改用 CSS columns */
+/* 作品排版：改用 CSS columns */
 #portfolio .portfolio-content.masonry-grid {
   column-gap: 18px;
   padding-top: 20px;
 }
 
-/* 你的 .grid-item 本身就是 a */
+/* 你的 .grid-item 本身就是 <a> */
 #portfolio .portfolio-content .grid-item {
   display: inline-block;
   width: 100%;
@@ -391,85 +368,6 @@ h1 {
   border-top: 6px solid #e0ffe0;
 }
 
-/* ===== Contact Button ===== */
-.contact-float-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #333;
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  text-decoration: none;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.contact-float-btn:hover {
-  background-color: #555;
-  transform: scale(1.05);
-}
-
-.contact-float-btn img {
-  width: 20px;
-  height: 20px;
-}
-
-/* ===== Contact Modal ===== */
-.contact-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.contact-modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.contact-modal-content .close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.contact-modal-content form input,
-.contact-modal-content form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.contact-modal-content form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 /* ===== Footer ===== */
 footer {
   padding: 20px 0;
@@ -489,16 +387,6 @@ footer .container {
 /* ===== Mobile Nav ===== */
 .mobile-nav {
   display: none;
-}
-
-/* ===== Particles ===== */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 
 /* ===== Animations ===== */
@@ -553,18 +441,6 @@ footer .container {
   }
 }
 
-@keyframes floatBg {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
 /* ===== RWD ===== */
 @media (max-width: 767px) {
   .hero {
@@ -572,13 +448,8 @@ footer .container {
     text-align: center;
   }
 
-  .hero .avatar {
-    width: 120px;
-    height: 120px;
-  }
-
   .hero-text h1 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     padding: 0 10px;
   }
 
@@ -637,8 +508,7 @@ footer .container {
     margin-bottom: 5px;
   }
 
-  header nav.main-nav,
-  .desktop-nav {
+  header nav.main-nav {
     display: none;
   }
 
