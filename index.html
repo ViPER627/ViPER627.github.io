@@ -645,6 +645,22 @@ function copyEmail() {
     });
   });
 }
+function initMasonry(gridId) {
+  const grid = document.querySelector(gridId);
+  if (!grid) return;
+
+  imagesLoaded(grid, function () {
+    new Masonry(grid, {
+      itemSelector: '.grid-item',
+      percentPosition: true
+    });
+  });
+}
+
+initMasonry('#design');
+initMasonry('#3d');
+initMasonry('#ai');
+initMasonry('#photo');
 </script>
   <div class="mobile-nav">
    <a href="#about">
