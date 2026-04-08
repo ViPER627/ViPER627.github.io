@@ -765,10 +765,11 @@ display: none;
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+/* iPad 保持三欄 */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
   .grid-sizer,
   .grid-item {
-    width: calc(50% - 20px); /* 平板變兩欄 */
+    width: calc(33.333% - 20px);
   }
 }
 
