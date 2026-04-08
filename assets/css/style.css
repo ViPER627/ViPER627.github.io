@@ -687,6 +687,18 @@ footer .container {
     width: 100%;
     max-width: 100%;
   }
+/* 每個卡片增加間距 */
+.masonry-grid .grid-item {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 圖片內縮 */
+.masonry-grid .grid-item img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
 }
 
 /* 桌機 */
