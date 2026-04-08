@@ -786,14 +786,14 @@ footer .container {
 @media (max-width: 767px) {
   .portfolio-content.masonry-grid,
   .masonry-grid {
-    padding: 8px;
+    margin: 5px;
   }
 
   .portfolio-content .grid-item,
   .masonry-grid .grid-item {
     width: 100%;
     max-width: 92vw;
-    padding: 8px;
+    margin: 5px;
   }
 
   .portfolio-content .grid-item a,
@@ -812,14 +812,14 @@ footer .container {
   .portfolio-content.masonry-grid,
   .masonry-grid {
     max-width: 1100px;
-    padding: 10px;
+    margin: 5px;
   }
 
   .portfolio-content .grid-item,
   .masonry-grid .grid-item {
     width: calc(100% / 3);
     max-width: none;
-    padding: 10px;
+    margin: 5px;
   }
 }
 
@@ -828,13 +828,13 @@ footer .container {
   .portfolio-content.masonry-grid,
   .masonry-grid {
     max-width: 1320px;
-    padding: 12px;
+    margin: 5px;
   }
 
   .portfolio-content .grid-item,
   .masonry-grid .grid-item {
     width: calc(100% / 4);
     max-width: none;
-    padding: 12px;
+    margin: 5px;
   }
 }
