@@ -608,31 +608,37 @@
   });
   </script>
   <!-- 初始化 Masonry 和 tab 切換 -->
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-    function initMasonry() {
-      const allGrids = document.querySelectorAll('.masonry-grid');
-      allGrids.forEach(grid => {
-        imagesLoaded(grid, () => {
-          new Masonry(grid, {
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-item',
-            percentPosition: true
-          });
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  function initMasonry() {
+    const grids = document.querySelectorAll('.masonry-grid');
+
+    grids.forEach(grid => {
+      imagesLoaded(grid, function () {
+        new Masonry(grid, {
+          itemSelector: '.grid-item',
+          percentPosition: true
         });
       });
-    }
+    });
+  }
 
-    initMasonry();
+  // 初始執行
+  initMasonry();
 
-    const tabs = document.querySelectorAll('.tab-button');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        setTimeout(() => initMasonry(), 300);
-      });
+  // tab 切換重新排版
+  const tabs = document.querySelectorAll('.tab-button');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      setTimeout(() => {
+        initMasonry();
+      }, 200);
     });
   });
-  </script>
+
+});
+</script>
 <script>
 function copyEmail() {
   const email = "viper_72527@yahoo.com.tw";
@@ -645,22 +651,6 @@ function copyEmail() {
     });
   });
 }
-function initMasonry(gridId) {
-  const grid = document.querySelector(gridId);
-  if (!grid) return;
-
-  imagesLoaded(grid, function () {
-    new Masonry(grid, {
-      itemSelector: '.grid-item',
-      percentPosition: true
-    });
-  });
-}
-
-initMasonry('#design');
-initMasonry('#3d');
-initMasonry('#ai');
-initMasonry('#photo');
 </script>
   <div class="mobile-nav">
    <a href="#about">
