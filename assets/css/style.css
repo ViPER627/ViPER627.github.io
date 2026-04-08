@@ -687,18 +687,6 @@ footer .container {
     width: 100%;
     max-width: 100%;
   }
-/* 每個卡片增加間距 */
-.masonry-grid .grid-item {
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* 圖片內縮 */
-.masonry-grid .grid-item img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
 }
 
 /* 桌機 */
@@ -717,5 +705,39 @@ footer .container {
   .masonry-grid .grid-item {
     width: calc((100% - 72px) / 4);
     max-width: none;
+  }
+}
+/* ===== Masonry 間距修正（重點） ===== */
+
+/* 整體容器左右留白 */
+.masonry-grid {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* 每個卡片增加間距 */
+.masonry-grid .grid-item {
+  padding: 10px;  /* 🔥 間距大小在這裡調 */
+  box-sizing: border-box;
+}
+
+/* 圖片本體 */
+.masonry-grid .grid-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px; /* 保留原本風格 */
+}
+
+/* iPad 三欄 + 間距同步 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .masonry-grid .grid-item {
+    width: calc((100% - 60px) / 3); /* 🔥 已包含間距 */
+  }
+}
+
+/* 桌機四欄 */
+@media (min-width: 1025px) {
+  .masonry-grid .grid-item {
+    width: calc((100% - 80px) / 4);
   }
 }
