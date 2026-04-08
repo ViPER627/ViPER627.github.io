@@ -573,6 +573,23 @@ z-index: 1000;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 text-decoration: none;
 }
+footer {
+padding: 20px 0;
+background-color: #f9f9f9;
+font-size: 14px;
+color: #666;
+text-align: center;
+}
+footer .container {
+text-align: center;
+margin: 0 auto;
+width: 100%;
+max-width: 960px;
+}
+/* 手機底部導覽列 */
+.mobile-nav {
+display: none;
+}
 /* ===== 作品集 tabs ===== */
 .portfolio-tabs {
   display: flex;
@@ -652,17 +669,4 @@ text-decoration: none;
     margin-left: 0;
     margin-bottom: 20px;
   }
-}
-.footer {
-padding: 20px 0;
-background-color: #f9f9f9;
-font-size: 14px;
-color: #666;
-text-align: center;
-}
-.footer .container {
-text-align: center;
-margin: 0 auto;
-width: 100%;
-max-width: 960px;
 }
