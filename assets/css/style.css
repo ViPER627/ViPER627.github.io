@@ -707,37 +707,134 @@ footer .container {
     max-width: none;
   }
 }
-/* ===== Masonry 間距修正（重點） ===== */
+/* =========================
+   Portfolio 高級質感版
+   直接貼到 CSS 最底部
+========================= */
 
-/* 整體容器左右留白 */
+/* 整體作品區容器 */
+.portfolio-content.masonry-grid,
 .masonry-grid {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-
-/* 每個卡片增加間距 */
-.masonry-grid .grid-item {
-  padding: 10px;  /* 🔥 間距大小在這裡調 */
+  margin: 0 auto;
+  padding: 12px;
+  max-width: 1280px;
   box-sizing: border-box;
 }
 
-/* 圖片本體 */
-.masonry-grid .grid-item img {
-  width: 100%;
-  display: block;
-  border-radius: 12px; /* 保留原本風格 */
+/* 單一卡片 */
+.portfolio-content .grid-item,
+.masonry-grid .grid-item {
+  box-sizing: border-box;
+  padding: 10px; /* 作品間距主控 */
 }
 
-/* iPad 三欄 + 間距同步 */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* 作品連結本體 */
+.portfolio-content .grid-item a,
+.masonry-grid .grid-item a {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* 圖片 */
+.portfolio-content .grid-item img,
+.masonry-grid .grid-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+/* hover 效果 */
+.portfolio-content .grid-item a:hover,
+.masonry-grid .grid-item a:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.14),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-content .grid-item a:hover img,
+.masonry-grid .grid-item a:hover img {
+  transform: scale(1.025);
+  filter: brightness(1.03);
+}
+
+/* 作品區標題和按鈕區更有空氣感 */
+#portfolio .container {
+  max-width: 1320px;
+}
+
+.portfolio-tabs {
+  margin-bottom: 28px;
+}
+
+/* 手機：1欄 */
+@media (max-width: 767px) {
+  .portfolio-content.masonry-grid,
+  .masonry-grid {
+    padding: 8px;
+  }
+
+  .portfolio-content .grid-item,
   .masonry-grid .grid-item {
-    width: calc((100% - 60px) / 3); /* 🔥 已包含間距 */
+    width: 100%;
+    max-width: 92vw;
+    padding: 8px;
+  }
+
+  .portfolio-content .grid-item a,
+  .masonry-grid .grid-item a {
+    border-radius: 14px;
+  }
+
+  .portfolio-content .grid-item img,
+  .masonry-grid .grid-item img {
+    border-radius: 14px;
   }
 }
 
-/* 桌機四欄 */
-@media (min-width: 1025px) {
+/* iPad：3欄 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .portfolio-content.masonry-grid,
+  .masonry-grid {
+    max-width: 1100px;
+    padding: 10px;
+  }
+
+  .portfolio-content .grid-item,
   .masonry-grid .grid-item {
-    width: calc((100% - 80px) / 4);
+    width: calc(100% / 3);
+    max-width: none;
+    padding: 10px;
+  }
+}
+
+/* 桌機：4欄 */
+@media (min-width: 1025px) {
+  .portfolio-content.masonry-grid,
+  .masonry-grid {
+    max-width: 1320px;
+    padding: 12px;
+  }
+
+  .portfolio-content .grid-item,
+  .masonry-grid .grid-item {
+    width: calc(100% / 4);
+    max-width: none;
+    padding: 12px;
   }
 }
