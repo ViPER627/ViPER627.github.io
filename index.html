@@ -139,7 +139,6 @@
     </div>
     <!-- design -->
     <div class="portfolio-content masonry-grid" id="design">
- <div class="grid-sizer"></div>
      <a class="grid-item" data-lightbox="design" data-title="Design 1" href="assets/images/design1.jpg">
       <img alt="Design1" src="assets/images/design1.jpg"/>
      </a>
@@ -227,7 +226,6 @@
     </div>
     <!-- 3D -->
     <div class="portfolio-content masonry-grid" id="3d" style="display:none">
- <div class="grid-sizer"></div>
      <a class="grid-item" data-lightbox="3d" href="assets/images/3d0.jpg">
       <img alt="3D 0" src="assets/images/3d0.jpg"/>
      </a>
@@ -294,7 +292,6 @@
     </div>
     <!-- AI -->
     <div class="portfolio-content masonry-grid" id="ai" style="display:none">
- <div class="grid-sizer"></div>
      <a class="grid-item" data-lightbox="ai" href="assets/images/ai1.jpg">
       <img alt="AI1" src="assets/images/ai1.jpg"/>
      </a>
@@ -370,7 +367,6 @@
     </div>
     <!-- Photo -->
     <div class="portfolio-content masonry-grid" id="photo" style="display:none">
- <div class="grid-sizer"></div>
      <a class="grid-item" data-lightbox="photo" data-title="Photo 1" href="assets/images/photo1.jpg">
       <img alt="Photo 1" src="assets/images/photo1.jpg"/>
      </a>
@@ -588,10 +584,6 @@
   <!-- JS 套件 -->
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js">
   </script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js">
-  </script>
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js">
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js">
@@ -612,42 +604,53 @@
   });
   </script>
   <!-- 初始化 Masonry 和 tab 切換 -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+<script src="assets/js/main.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
-  const grids = document.querySelectorAll('.masonry-grid');
-  let masonryInstances = [];
-
-  function initMasonry() {
-    // 先清掉舊的（避免重複）
-    masonryInstances.forEach(m => m.destroy());
-    masonryInstances = [];
-
-    grids.forEach(grid => {
-      imagesLoaded(grid, function () {
-        const msnry = new Masonry(grid, {
-          itemSelector: '.grid-item',
-          percentPosition: true
-        });
-        masonryInstances.push(msnry);
-      });
-    });
-  }
-
-  initMasonry();
-
-  const tabs = document.querySelectorAll('.tab-button');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      setTimeout(() => {
-        initMasonry();
-      }, 200);
-    });
+  VANTA.WAVES({
+    el: "#vanta-bg",
+    color: "#a4a4a4",
+    shininess: 0,
+    waveHeight: 10,
+    waveSpeed: 1.0,
+    zoom: 1.0,
+    backgroundColor: "#dedede"
   });
 
+  const tabs = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".portfolio-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", function () {
+      const target = this.dataset.tab;
+
+      tabs.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      contents.forEach(content => {
+        content.style.display = content.id === target ? "block" : "none";
+      });
+    });
+  });
 });
-</script>
-<script>
+
+function copyEmail() {
+  const email = "viper_72527@yahoo.com.tw";
+  navigator.clipboard.writeText(email).then(() => {
+    const tooltip = document.getElementById("copy-tooltip");
+    if (tooltip) {
+      tooltip.style.opacity = "1";
+      setTimeout(() => {
+        tooltip.style.opacity = "0";
+      }, 2000);
+    }
+  });
+}
+</script><script>
 function copyEmail() {
   const email = "viper_72527@yahoo.com.tw";
   navigator.clipboard.writeText(email).then(() => {
