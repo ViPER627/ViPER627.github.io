@@ -686,6 +686,24 @@ text-decoration: none;
     background-color: #fff;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
   }
+footer {
+padding: 20px 0;
+background-color: #f9f9f9;
+font-size: 14px;
+color: #666;
+text-align: center;
+}
+footer .container {
+text-align: center;
+margin: 0 auto;
+width: 100%;
+max-width: 960px;
+}
+/* 手機底部導覽列 */
+.mobile-nav {
+display: none;
+}
+
 /* ===== 作品集容器 ===== */
 .portfolio-content.masonry-grid {
   max-width: 1200px;
