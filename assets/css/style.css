@@ -879,3 +879,8 @@ footer .container {
     padding: 10px !important;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .masonry-grid .grid-item {
+    width: 33.3333% !important;
+  }
+}
